@@ -10,6 +10,7 @@ func init() {
 	rootCmd.AddCommand(versionCmd)
 }
 
+// versionCmd displays the current version information
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Print current version of the tool",

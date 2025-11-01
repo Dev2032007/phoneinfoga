@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phoneinfoga"
+version = "2.0.0"
+description = "Advanced information gathering & OSINT tool for phone numbers"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "GPL-3.0"}
+authors = [
+    {name = "Sundown Dev", email = "contact@sundowndev.io"}
+]
+keywords = ["osint", "phone", "number", "investigation", "recon"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "click>=8.0.0",
+    "colorama>=0.4.4",
+    "phonenumbers>=8.12.0",
+    "python-dotenv>=0.19.0",
+    "requests>=2.26.0",
+    "flask>=2.0.0",
+    "flask-cors>=3.0.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+]
+
+[project.scripts]
+phoneinfoga = "phoneinfoga.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/sundowndev/phoneinfoga"
+Documentation = "https://sundowndev.github.io/phoneinfoga/"
+Repository = "https://github.com/sundowndev/phoneinfoga"
+Issues = "https://github.com/sundowndev/phoneinfoga/issues"
+
+[tool.setuptools]
+packages = ["phoneinfoga"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
